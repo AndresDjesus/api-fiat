@@ -1,42 +1,53 @@
 const express = require('express'); 
 const rVehicles = express.Router();
-const db = require('../../../utils/sequelize');
-const { validatesSChemaCreateVehicle } = require('../validators');
+const { CreateVehicleController, GetIdVehicleController, UpdatePutVehicleController, UpdatePatchVehicleController , DeleteVehicleController , GetVehiclesController} = require('../controllers');
 
-rVehicles.get('/', (req, res) => {
-    res.send('Hello World! from Vehicles')
-});
+rVehicles.get('/', async (req, res) => {
+        try {
+           return await GetVehiclesController(req, res);
+        } catch (err) {
+            throw err;
+        }
+    });
 
-rVehicles.get('/:id', (req, res) => {
-    res.send(`Hello World! from Vehicles - ${req.params.id}`)
-});
+rVehicles.get('/:id', async (req, res) => {
+        try {
+          return await GetIdVehicleController(req, res);
+        } catch (err) {
+            throw err;
+        }
+    });
 
 rVehicles.post('/', async (req, res) => {
         try {
-            const { error } = validatesSChemaCreateVehicle.validate({ ...req.body }, { abortEarly: false });
-            if(error) {
-                const e = new Error();
-                e.status = 400;
-                e.message = error.details.map((err) => err.message).join(', ');
-                throw e;
-            }
-            const vehicle = await db.vehicles.create({ ...req.body });
-            return res.json(vehicle);
-        } catch (error) {
-            if(error.status === 400) {
-                return res.status(error.status).send({ message: error.message, stack: error.stack });
-            }
-            return res.status(500).send({ message: error.message, stack: error.stack });
-
+            return await CreateVehicleController(req, res);
+        } catch (err) {
+            throw err;
         }
       });
 
-rVehicles.put('/:id', (req, res) => {
-    res.send('Hello World! from Vehicles - PUT' + req.params.id)
+rVehicles.put('/:id',async (req, res) => {
+        try {
+            return await UpdatePutVehicleController(req, res);
+        } catch (err) {
+            throw err;
+        }
+    });
+
+rVehicles.patch('/:id', async (req, res) => {
+    try {
+        return await UpdatePatchVehicleController(req, res);
+    } catch (err) {
+        throw err;
+    }
 });
 
-rVehicles.patch('/:id', (req, res) => {
-    res.send('Hello World! from Vehicles - PATCH' + req.params.id)
-});
-
+rVehicles.delete('/:id', async (req, res) => {
+        try {
+            return await DeleteVehicleController(req, res);
+        } catch (err) {
+            throw err;
+        }
+    });
+    
 module.exports = rVehicles;

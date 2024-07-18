@@ -24,9 +24,13 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Agregar modelos
+db.categories = require('../models/categories')(DataTypes, sequelize);
+db.images = require('../models/images')(DataTypes, sequelize);
+db.motors = require('../models/motors')(DataTypes, sequelize);
 db.vehicles = require('../models/vehicles')(DataTypes, sequelize);
 
 
-
-db.sequelize.sync();
+db.sequelize.sync({
+  alter: true,
+});
 module.exports = db;
