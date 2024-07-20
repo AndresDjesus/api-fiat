@@ -17,6 +17,5 @@ module.exports = (DataTypes, sequelize) => {
         timestamps: true,
         paranoid: true
       });
-    Image.belongsTo(require('./vehicles')(DataTypes, sequelize), { foreignKey: 'vehicle_id', allowNull: false, references: { model: 'Vehicle', key: 'id' } });
     return Image
 }
