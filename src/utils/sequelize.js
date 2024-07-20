@@ -30,13 +30,12 @@ db.motors = require('../models/motors')(DataTypes, sequelize);
 db.vehicles = require('../models/vehicles')(DataTypes, sequelize);
 
 // relationships 
-db.categories.hasMany(db.vehicles, { foreignKey: { name: 'category_id', allowNull: false } });
-db.motors.hasMany(db.vehicles, { foreignKey: { name: 'motor_id', allowNull: false  } });
-db.vehicles.hasMany(db.images, { foreignKey: { name: 'vehicle_id', allowNull: false  } });
-
-db.vehicles.belongsTo(db.categories);
-db.vehicles.belongsTo(db.motors);
-db.images.belongsTo(db.vehicles);
+db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
+db.vehicles.belongsTo(db.categories, { as: 'category', foreignKey: 'category_id' });
+db.motors.hasMany(db.vehicles, { foreignKey: 'motor_id' });
+db.vehicles.belongsTo(db.motors, { as: 'motor', foreignKey: 'motor_id' });
+db.vehicles.hasMany(db.images, { foreignKey: 'vehicle_id' });
+db.images.belongsTo(db.vehicles, { as: 'vehicle', foreignKey: 'vehicle_id' });
 
 db.sequelize.sync({
   alter: true,
