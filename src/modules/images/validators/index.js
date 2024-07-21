@@ -12,7 +12,11 @@ const validatesSChemaCreateImage = Joi.object({
     }),
     vehicle_id: Joi.number().messages({
         'number.empty': 'El id del vehículo es requerido'
-    })
+    }),
+    service_id: Joi.number().messages({
+        'number.empty': 'El id del servicio es requerido'
+    }),
+
 });
 
 // validador para actualizar una imagen por medio de PUT
@@ -26,9 +30,11 @@ const validatesSChemaUpdatePutImage = Joi.object({
         'any.required': 'La imagen es requerida',
         'string.empty': 'La imagen es requerida',
     }),
-    vehicle_id: Joi.number().required().messages({
-        'any.required': 'El id del vehículo es requerido',
+    vehicle_id: Joi.number().messages({
         'number.empty': 'El id del vehículo es requerido',
+    }),
+    service_id: Joi.number().messages({
+        'number.empty': 'El id del servicio es requerido',
     }),
 });
 
