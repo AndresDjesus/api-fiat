@@ -18,6 +18,21 @@ const validatesSChemaCreateVehicle = Joi.object({
         'any.required': 'El precio del vehículo es requerido',
         'string.empty': 'El precio del vehículo es requerido',
     }),
+    category_id: Joi.number().required().messages({
+        'any.required': 'El id de la categoría es requerido',
+        'number.empty': 'El id de la categoría es requerido',
+    }),
+    motor_id: Joi.number().required().messages({
+        'any.required': 'El id del motor es requerido',
+        'number.empty': 'El id del motor es requerido',
+    }),
+    description: Joi.string().messages({
+        'string.empty': 'La descripción del vehímulo es requerida',
+    }),
+    transmission: Joi.string().valid('manual', 'automatic').required().messages({
+        'string.empty': 'La transmision del vehímulo es requerida',
+        'any.required': 'La transmision del vehímulo es requerida',
+    }),
 });
 
 // Validador para actualizar un vehículo por medio de PUT

@@ -20,6 +20,7 @@ module.exports = (DataTypes, sequelize) => {
     },
     transmission: {
       type: DataTypes.ENUM('manual', 'automatic'),
+      allowNull: false,
     },
   }, {
     timestamps: true,

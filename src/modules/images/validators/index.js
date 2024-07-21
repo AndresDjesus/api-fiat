@@ -10,9 +10,8 @@ const validatesSChemaCreateImage = Joi.object({
         'any.required': 'La imagen es requerida',
         'string.empty': 'La imagen es requerida',
     }),
-    vehicle_id: Joi.number().required().messages({
-        'any.required': 'El id del vehículo es requerido',
-        'number.empty': 'El id del vehículo es requerido',
+    vehicle_id: Joi.number().messages({
+        'number.empty': 'El id del vehículo es requerido'
     })
 });
 

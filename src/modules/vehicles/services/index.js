@@ -11,11 +11,20 @@ const createVehicle = async (data) => {
 const getVehicles = async () => {
     try {
         return await db.vehicles.findAll({
+            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission'],
             include: [
                 {
+                    model: db.motors,
+                    as: 'motor',
+                    attributes: ['name']
+                }, {
+                    model: db.categories,
+                    as: 'category',
+                    attributes: ['name']
+                }, 
+                {
                     model: db.images,
-                    as: 'images',
-                    attributes: ['id', 'base64', 'principal']
+                    attributes: ['principal','base64']
                 }
             ]
         });
@@ -25,7 +34,24 @@ const getVehicles = async () => {
 }
 const getIdVehicle = async (id) => {
     try {
-        return await db.vehicles.findByPk(id);
+        return await db.vehicles.findByPk(id, {
+            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission'],
+            include: [
+                {
+                    model: db.motors,
+                    as: 'motor',
+                    attributes: ['name']
+                }, {
+                    model: db.categories,
+                    as: 'category',
+                    attributes: ['name']
+                },
+                {
+                    model: db.images,
+                    attributes: ['principal','base64']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }
