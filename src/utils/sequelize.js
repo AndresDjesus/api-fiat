@@ -30,6 +30,9 @@ db.images = require('../models/images')(DataTypes, sequelize);
 db.motors = require('../models/motors')(DataTypes, sequelize);
 db.vehicles = require('../models/vehicles')(DataTypes, sequelize);
 db.services = require('../models/services')(DataTypes, sequelize);
+db.company = require('../models/company')(DataTypes, sequelize);
+db.companyProfile = require('../models/companyProfile')(DataTypes, sequelize);
+db.location = require('../models/location')(DataTypes, sequelize);
 
 // relationships 
 db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
@@ -40,6 +43,11 @@ db.vehicles.hasMany(db.images, { foreignKey: { name: 'vehicle_id', allowNull: tr
 db.images.belongsTo(db.vehicles, { as: 'vehicle', foreignKey: { name: 'vehicle_id', allowNull: true } });
 db.images.belongsTo(db.services, { as: 'service', foreignKey:{ name: 'service_id', allowNull: true } });
 db.services.hasMany(db.images, { foreignKey: { name: 'service_id', allowNull: true } });
+db.company.hasMany(db.companyProfile, { foreignKey: 'company_id' });
+db.companyProfile.belongsTo(db.company, { as: 'company', foreignKey: 'company_id' });
+db.company.hasMany(db.location, { foreignKey: 'company_id' });
+db.location.belongsTo(db.company, { as: 'company', foreignKey: 'company_id' });
+db.images.belongsTo(db.company, { as: 'company', foreignKey: 'company_id' });
 
 db.sequelize.sync({
   alter: true,

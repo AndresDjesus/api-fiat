@@ -10,7 +10,16 @@ const createService = async (data) => {
 
 const getServices = async () => {
     try {
-        return await db.services.findAll();
+
+        return await db.services.findAll({
+            attributes: ['id', 'name', 'description'],
+            include: [
+                {
+                    model: db.images,
+                    attributes: ['principal','base64']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }
@@ -18,7 +27,15 @@ const getServices = async () => {
 
 const getIdService = async (id) => {
     try {
-        return await db.services.findByPk(id);
+        return await db.services.findByPk(id , {
+            attributes: ['id', 'name', 'description'],
+            include: [
+                {
+                    model: db.images,
+                    attributes: ['principal','base64']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }
