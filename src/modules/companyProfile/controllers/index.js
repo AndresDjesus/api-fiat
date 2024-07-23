@@ -1,6 +1,6 @@
-const {validatesSChemaCreateCompanyProfile, validatesSChemaGetIdCompanyProfile, validatesSChemaUpdatePutCompanyProfile, validatesSChemaUpdatePatchCompanyProfile, validatesSChemaDeleteCompanyProfile} = require('../validators');
+const {validatesSChemaCreateCompanyProfile, validatesSChemaGetIdCompanyProfile, validatesSChemaUpdatePutCompanyProfile, validatesSChemaUpdatePatchCompanyProfile} = require('../validators');
 
-const {createCompanyProfile, getIdCompanyProfile, updatePutCompanyProfile, updatePatchCompanyProfile, deleteCompanyProfile} = require('../services');
+const {createCompanyProfile, getIdCompanyProfile, updatePutCompanyProfile, updatePatchCompanyProfile, deleteCompanyProfile, getCompanyProfile} = require('../services');
 
 const GetCompanyProfileController = async (req, res) => {
     try {
@@ -12,7 +12,7 @@ const GetCompanyProfileController = async (req, res) => {
 }
 const CreateCompanyProfileController = async (req, res) => {
     try { 
-        const { error } = validatesSChemaCreatecompanyProfile.validate({ ...req.body }, { abortEarly: false });
+        const { error } = validatesSChemaCreateCompanyProfile.validate({ ...req.body }, { abortEarly: false });
         if(error) {
             const e = new Error();
             e.status = 400;
@@ -41,7 +41,7 @@ const GetIdCompanyProfileController = async (req, res) => {
 
 const UpdatePutCompanyProfileController = async (req, res) => {
     try {
-        const { error } = validatesSChemaUpdatePutcompanyProfile.validate({ ...req.body }, { abortEarly: false });
+        const { error } = validatesSChemaUpdatePutCompanyProfile.validate({ ...req.body }, { abortEarly: false });
         if(error) {
             const e = new Error();
             e.status = 400;
@@ -67,7 +67,7 @@ const UpdatePutCompanyProfileController = async (req, res) => {
 
 const UpdatePatchCompanyProfileController = async (req, res) => {
     try {
-        const { error } = validatesSChemaUpdatePatchcompanyProfile.validate({ ...req.body }, { abortEarly: false });
+        const { error } = validatesSChemaUpdatePatchCompanyProfile.validate({ ...req.body }, { abortEarly: false });
         if(error) {
             const e = new Error();
             e.status = 400;

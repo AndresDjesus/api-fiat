@@ -5,7 +5,7 @@ const db = require('../../../utils/sequelize');
 const createImage = async (data) => {
     try {
 
-    if (data.service_id && data.vehicle_id) {
+    if (data.service_id && data.vehicle_id ) {
       throw new Error('We should provide only one of these fields: service_id, vehicle_id');
     }
     if (data.service_id && !await db.services.findOne({ where: { id: data.service_id } })) {

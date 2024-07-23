@@ -3,7 +3,7 @@ const db = require('../../../utils/sequelize');
 
 const createCompanyProfile = async (data) => {
     try {
-        return await db.companyProfiles.create(data);
+        return await db.companyProfile.create(data);
     } catch (e) {
         throw e;
     }
@@ -11,7 +11,15 @@ const createCompanyProfile = async (data) => {
 
 const getCompanyProfile = async () => {
     try {
-        return await db.companyProfiles.findAll();
+        return await db.companyProfile.findAll();
+    } catch (e) {
+        throw e;
+    }
+}
+
+const getIdCompanyProfile = async (id) => {
+    try {
+        return await db.companyProfile.findByPk(id);
     } catch (e) {
         throw e;
     }
@@ -19,14 +27,14 @@ const getCompanyProfile = async () => {
 
 const updatePutCompanyProfile = async (id, data) => {
     try {
-        return await db.companyProfiles.update({ ...data }, { where: { id } });    
+        return await db.companyProfile.update({ ...data }, { where: { id } });    
     } catch (e) {
         throw e;
     }
 }   
 const updatePatchCompanyProfile = async (id,data) => {
     try {
-        return await db.companyProfiles.update({ ...data }, { where: { id } });    
+        return await db.companyProfile.update({ ...data }, { where: { id } });    
     } catch (e) {
         throw e;
     }
@@ -34,11 +42,11 @@ const updatePatchCompanyProfile = async (id,data) => {
 
 const deleteCompanyProfile = async (id) => {
     try {
-        return await db.companyProfiles.destroy({ where: { id } });
+        return await db.companyProfile.destroy({ where: { id } });
     } catch (e) {
         throw e;
     }
 }
 module.exports = {
-    createCompanyProfile, getCompanyProfile, updatePutCompanyProfile, updatePatchCompanyProfile, deleteCompanyProfile
+    createCompanyProfile, getCompanyProfile, updatePutCompanyProfile, updatePatchCompanyProfile, deleteCompanyProfile, getIdCompanyProfile
 }

@@ -16,6 +16,9 @@ const validatesSChemaCreateImage = Joi.object({
     service_id: Joi.number().messages({
         'number.empty': 'El id del servicio es requerido'
     }),
+    company_id: Joi.number().messages({
+        'number.empty': 'El id de la empresa es requerido'
+    }),
 
 });
 
@@ -36,6 +39,9 @@ const validatesSChemaUpdatePutImage = Joi.object({
     service_id: Joi.number().messages({
         'number.empty': 'El id del servicio es requerido',
     }),
+    company_id: Joi.number().messages({
+        'number.empty': 'El id de la empresa es requerido',
+    }),
 });
 
 // validador para actualizar una imagen por medio de PATCH
@@ -53,6 +59,15 @@ const validatesSChemaUpdatePatchImage = Joi.object({
         'any.required': 'El id del vehículo es requerido',
         'number.empty': 'El id del vehículo es requerido',
     }),
+    service_id: Joi.number().required().messages({
+        'any.required': 'El id del servicio es requerido',
+        'number.empty': 'El id del servicio es requerido',
+    }),
+    company_id: Joi.number().required().messages({
+        'any.required': 'El id de la empresa es requerido',
+        'number.empty': 'El id de la empresa es requerido',
+    }),
+    
 });
 
 // validador para obtener una imagen por medio de GET ID

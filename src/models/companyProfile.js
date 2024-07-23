@@ -5,6 +5,10 @@ module.exports = (DataTypes, sequelize) => {
             autoIncrement: true,
             primaryKey: true,
         },
+        active: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         mission: {
             type: DataTypes.TEXT,
             allowNull: false,
