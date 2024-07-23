@@ -3,7 +3,7 @@ const db = require('../../../utils/sequelize');
 
 const createLocation = async (data) => {
     try {
-        return await db.locations.create(data);
+        return await db.location.create(data);
     } catch (e) {
         throw e;
     }
@@ -11,7 +11,15 @@ const createLocation = async (data) => {
 
 const getLocations = async () => {
     try {
-        return await db.locations.findAll();
+        return await db.location.findAll();
+    } catch (e) {
+        throw e;
+    }
+}
+
+const getIdLocation = async (id) => {
+    try {
+        return await db.location.findByPk(id);
     } catch (e) {
         throw e;
     }
@@ -19,7 +27,7 @@ const getLocations = async () => {
 
 const updatePutLocation = async (id, data) => {
     try {
-        return await db.locations.update({ ...data }, { where: { id } });    
+        return await db.location.update({ ...data }, { where: { id } });    
     } catch (e) {
         throw e;
     }
@@ -27,7 +35,7 @@ const updatePutLocation = async (id, data) => {
 
 const updatePatchLocation = async (id,data) => {
     try {
-        return await db.locations.update({ ...data }, { where: { id } });    
+        return await db.location.update({ ...data }, { where: { id } });    
     } catch (e) {
         throw e;
     }
@@ -35,13 +43,13 @@ const updatePatchLocation = async (id,data) => {
 
 const deleteLocation = async (id) => {
     try {
-        return await db.locations.destroy({ where: { id } });
+        return await db.location.destroy({ where: { id } });
     } catch (e) {
         throw e;
     }
 }
 module.exports = {
-    createLocation, getLocations, updatePutLocation, updatePatchLocation, deleteLocation
+    createLocation, getLocations, updatePutLocation, updatePatchLocation, deleteLocation, getIdLocation
 }
 
 

@@ -1,10 +1,10 @@
 const express = require('express');
 const rLocation = express.Router();
-const { CreateLocationController, GetIdLocationController, UpdatePutLocationController, UpdatePatchLocationController , DeleteLocationController , GetLocationsController} = require('../controllers');
+const { CreateLocationController, GetIdLocationController, UpdatePutLocationController, UpdatePatchLocationController , DeleteLocationController , GetLocationController} = require('../controllers');
 
 rLocation.get('/', async (req, res) => {
         try {
-           return await GetLocationsController(req, res);
+           return await GetLocationController(req, res);
         } catch (err) {
             throw err;
         }

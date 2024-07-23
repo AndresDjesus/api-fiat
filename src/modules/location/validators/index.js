@@ -2,6 +2,10 @@ const Joi = require('joi');
 
 // validador para crear una ubicación
 const validatesSChemaCreateLocation = Joi.object({
+    company_id: Joi.number().required().messages({
+        'any.required': 'El id de la empresa es requerido',
+        'number.empty': 'El id de la empresa es requerido',
+    }),
     address: Joi.string().required().messages({
         'any.required': 'La ubicación es requerida',
         'string.empty': 'La ubicación es requerida',
@@ -18,6 +22,10 @@ const validatesSChemaCreateLocation = Joi.object({
 
 // validador para actualizar una ubicación por medio de PUT
 const validatesSChemaUpdatePutLocation = Joi.object({
+    company_id: Joi.number().required().messages({
+        'any.required': 'El id de la empresa es requerido',
+        'number.empty': 'El id de la empresa es requerido',
+    }),
     address: Joi.string().required().messages({
         'any.required': 'La ubicación es requerida',
         'string.empty': 'La ubicación es requerida',
@@ -34,6 +42,10 @@ const validatesSChemaUpdatePutLocation = Joi.object({
 
 // validador para actualizar una ubicación por medio de PATCH
 const validatesSChemaUpdatePatchLocation = Joi.object({
+    company_id: Joi.number().required().messages({
+        'any.required': 'El id de la empresa es requerido',
+        'number.empty': 'El id de la empresa es requerido',
+    }),
     address: Joi.string().required().messages({
         'any.required': 'La ubicación es requerida',
         'string.empty': 'La ubicación es requerida',

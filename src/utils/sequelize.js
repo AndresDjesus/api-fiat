@@ -47,11 +47,11 @@ db.services.hasMany(db.images, { foreignKey: { name: 'service_id', allowNull: tr
 db.company.hasMany(db.companyProfile, { foreignKey: { name: 'company_id', allowNull: false } });
 db.companyProfile.belongsTo(db.company, { as: 'profile', foreignKey: { name: 'company_id', allowNull: false } });
 
-// db.company.hasMany(db.location, { foreignKey: 'company_id' });
-// db.location.belongsTo(db.company, { as: 'location', foreignKey: 'company_id' });
+ db.company.hasMany(db.location, { foreignKey: 'company_id' });
+ db.location.belongsTo(db.company, { as: 'location', foreignKey: 'company_id' });
 
-// db.images.belongsTo(db.company, { as: 'images', foreignKey: 'company_id' });
-// db.company.hasMany(db.images, { foreignKey: 'company_id' });
+  db.images.belongsTo(db.company, { as: 'images', foreignKey: 'company_id' });
+  db.company.hasMany(db.images, { foreignKey: 'company_id' });
 
 db.sequelize.sync({
   alter: true,

@@ -17,7 +17,19 @@ const getCompany = async () => {
                     model: db.companyProfile,
                     as: 'CompanyProfiles',
                     attributes: ['mission','vision','history','active']
-                }
+                },
+                {
+                    model: db.location,
+                    as: 'Locations',
+                    attributes: ['address', 'latitude', 'longitude']
+
+                },
+                {
+                    
+                        model: db.images,
+                        attributes: ['principal','base64']
+                    
+                },
             ]
         });
     } catch (e) {
@@ -33,6 +45,16 @@ const getIdCompany = async (id) => {
                     model: db.companyProfile,
                     as: 'CompanyProfiles',
                     attributes: ['mission','vision','history','active']
+                },
+                {
+                    model: db.location,
+                    as: 'Locations',
+                    attributes: ['address', 'latitude', 'longitude']
+
+                },
+                {
+                    model: db.images,
+                    attributes: ['principal','base64']
                 }
             ]
         });
