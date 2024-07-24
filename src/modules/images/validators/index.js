@@ -19,6 +19,9 @@ const validatesSChemaCreateImage = Joi.object({
     company_id: Joi.number().messages({
         'number.empty': 'El id de la empresa es requerido'
     }),
+    blog_id: Joi.number().messages({
+        'number.empty': 'El id del blog es requerido'
+    }),
 
 });
 
@@ -42,6 +45,9 @@ const validatesSChemaUpdatePutImage = Joi.object({
     company_id: Joi.number().messages({
         'number.empty': 'El id de la empresa es requerido',
     }),
+    blog_id: Joi.number().messages({
+        'number.empty': 'El id del blog es requerido',
+    }),
 });
 
 // validador para actualizar una imagen por medio de PATCH
@@ -55,17 +61,17 @@ const validatesSChemaUpdatePatchImage = Joi.object({
         'any.required': 'La imagen es requerida',
         'string.empty': 'La imagen es requerida',
     }),
-    vehicle_id: Joi.number().required().messages({
-        'any.required': 'El id del vehículo es requerido',
+    vehicle_id: Joi.number().messages({
         'number.empty': 'El id del vehículo es requerido',
     }),
-    service_id: Joi.number().required().messages({
-        'any.required': 'El id del servicio es requerido',
+    service_id: Joi.number().messages({
         'number.empty': 'El id del servicio es requerido',
     }),
-    company_id: Joi.number().required().messages({
-        'any.required': 'El id de la empresa es requerido',
+    company_id: Joi.number().messages({
         'number.empty': 'El id de la empresa es requerido',
+    }),
+    blog_id: Joi.number().messages({
+        'number.empty': 'El id del blog es requerido',
     }),
     
 });

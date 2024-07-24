@@ -22,7 +22,6 @@ const getCompany = async () => {
                     model: db.location,
                     as: 'Locations',
                     attributes: ['address', 'latitude', 'longitude']
-
                 },
                 {
                     
