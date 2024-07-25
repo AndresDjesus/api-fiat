@@ -9,6 +9,7 @@ const rCompany = require('../modules/company/routes');
 const rCompanyProfile = require('../modules/companyProfile/routes');
 const rLocation = require('../modules/location/routes');
 const rBlog = require('../modules/blog/routes');
+const rFooter = require('../modules/footer/routes');
 const router = express.Router();
 
 router.use('/vehicles', rVehicles);
@@ -20,5 +21,6 @@ router.use('/company', rCompany);
 router.use('/companyProfile', rCompanyProfile);
 router.use('/location', rLocation);
 router.use('/blog', rBlog);
+router.use('/footer', rFooter);
 
 module.exports = router;

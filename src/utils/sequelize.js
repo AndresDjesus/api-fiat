@@ -34,6 +34,9 @@ db.company = require('../models/company')(DataTypes, sequelize);
 db.companyProfile = require('../models/companyProfile')(DataTypes, sequelize);
 db.location = require('../models/location')(DataTypes, sequelize);
 db.blog = require('../models/blog')(DataTypes, sequelize);
+console.log(sequelize , "ANTEEEEEEESSSSSSSSSSSSSSSSSSSSSSS")
+db.footer = require('../models/footer')(DataTypes, sequelize);
+console.log(sequelize , "DESPUUUUUUEESSSSSSSSSSSSSSSSSSSSSSS")
 
 // relationships 
 db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
@@ -56,8 +59,12 @@ db.companyProfile.belongsTo(db.company, { as: 'profile', foreignKey: { name: 'co
 db.blog.hasMany(db.images, { foreignKey:{ name: 'blog_id', allowNull: true } });
 db.images.belongsTo(db.blog, { as: 'blog', foreignKey:{ name: 'blog_id', allowNull: true } });
 
+ db.footer.hasMany(db.images, { foreignKey:{ name: 'footer_id', allowNull: true } });
+db.images.belongsTo(db.footer, { as: 'footer', foreignKey:{ name: 'footer_id', allowNull: true } });
+
 db.sequelize.sync({
   alter: true,
   force: false,
 });
+
 module.exports = db;
