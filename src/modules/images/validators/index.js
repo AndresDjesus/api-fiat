@@ -25,6 +25,12 @@ const validatesSChemaCreateImage = Joi.object({
     footer_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido'
     }),
+    design_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    inside_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
 
 });
 
@@ -54,6 +60,12 @@ const validatesSChemaUpdatePutImage = Joi.object({
     footer_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido',
     }),
+    design_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    inside_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
 });
 
 // validador para actualizar una imagen por medio de PATCH
@@ -81,6 +93,12 @@ const validatesSChemaUpdatePatchImage = Joi.object({
     }),
     footer_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido',
+    }),
+    design_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    inside_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
     }),
     
 });

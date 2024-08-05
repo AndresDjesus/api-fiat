@@ -23,6 +23,21 @@ const getVehicles = async () => {
                     attributes: ['name']
                 }, 
                 {
+                    model: db.combustible,
+                    as:'combustible',
+                    attributes:['ciudad','carretera','description']
+                },
+                {
+                    model: db.design,
+                    as:'design',
+                    attributes:['title', 'content', 'base64']
+                },
+                {
+                    model: db.inside,
+                    as:'inside',
+                    attributes:['title', 'content', 'base64']
+                },
+                {
                     model: db.images,
                     attributes: ['principal','base64']
                 }
@@ -45,6 +60,21 @@ const getIdVehicle = async (id) => {
                     model: db.categories,
                     as: 'category',
                     attributes: ['name']
+                },
+                {
+                    model: db.combustible,
+                    as:'combustible',
+                    attributes:['ciudad','carretera','description']
+                },
+                {
+                    model: db.design,
+                    as:'design',
+                    attributes:['title', 'content', 'base64']
+                },
+                {
+                    model: db.inside,
+                    as:'inside',
+                    attributes:['title', 'content', 'base64']
                 },
                 {
                     model: db.images,

@@ -5,6 +5,7 @@ const { validatesSChemaGetVehicle } = require('../validators');
 const { validatesSChemaDeleteVehicle } = require('../validators');
 
 const {createVehicle, getVehicles, getIdVehicle , updatePutVehicle, updatePatchVehicle, deleteVehicle} = require('../services');
+const vehicles = require('../../../models/vehicles');
 
 const CreateVehicleController = async (req, res) => {
     try {
@@ -93,7 +94,7 @@ const UpdatePutVehicleController = async (req, res) => {
 
 const UpdatePatchVehicleController = async (req, res) => {
     
-    try {  const { error } = validatesSChemaUpdatePutVehicle.validate({ ...req.body }, { abortEarly: false });
+    try {  const { error } = validatesSChemaUpdatePatchVehicle.validate({ ...req.body }, { abortEarly: false });
     if(error) {
         const e = new Error();
         e.status = 400;

@@ -29,6 +29,10 @@ const validatesSChemaCreateVehicle = Joi.object({
     description: Joi.string().messages({
         'string.empty': 'La descripción del vehímulo es requerida',
     }),
+    design_id: Joi.number().required().messages({
+        'any.required': 'El id del motor es requerido',
+        'number.empty': 'El id del motor es requerido',
+    }),
     transmission: Joi.string().valid('manual', 'automatic').required().messages({
         'string.empty': 'La transmision del vehímulo es requerida',
         'any.required': 'La transmision del vehímulo es requerida',
@@ -53,6 +57,9 @@ const validatesSChemaUpdatePutVehicle = Joi.object({
         'any.required': 'El precio del vehículo es requerido',
         'string.empty': 'El precio del vehículo es requerido',
     }),
+    description: Joi.string().messages({
+        'string.empty': 'La descripción del vehímulo es requerida',
+    })
 });
 
 // Validador para actualizar un vehículo por medio de PATCH
@@ -73,6 +80,9 @@ const validatesSChemaUpdatePatchVehicle = Joi.object({
         'any.required': 'El precio del vehículo es requerido',
         'string.empty': 'El precio del vehículo es requerido',
     }),
+    description: Joi.string().messages({
+        'string.empty': 'La descripción del vehímulo es requerida',
+    })
 });
 
 // Validador para obtener un vehículo por medio de GET ID

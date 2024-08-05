@@ -10,6 +10,10 @@ const rCompanyProfile = require('../modules/companyProfile/routes');
 const rLocation = require('../modules/location/routes');
 const rBlog = require('../modules/blog/routes');
 const rFooter = require('../modules/footer/routes');
+const rCombustible = require('../modules/combustible/routes');
+const rDesign = require('../modules/design/routes');
+const rInside = require('../modules/inside/routes');
+const rTechnology = require('../modules/technology/routes');
 const router = express.Router();
 
 router.use('/vehicles', rVehicles);
@@ -22,5 +26,9 @@ router.use('/companyProfile', rCompanyProfile);
 router.use('/location', rLocation);
 router.use('/blog', rBlog);
 router.use('/footer', rFooter);
+router.use('/combustible', rCombustible);
+router.use('/design', rDesign);
+router.use('/inside' , rInside);
+router.use('/technology', rTechnology);
 
 module.exports = router;
