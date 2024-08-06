@@ -16,7 +16,7 @@ const getCompany = async () => {
                 {
                     model: db.companyProfile,
                     as: 'CompanyProfiles',
-                    attributes: ['mission','vision','history','active']
+                    attributes: ['mission','vision','history','active','schedule']
                 },
                 {
                     model: db.location,
@@ -43,7 +43,7 @@ const getIdCompany = async (id) => {
                 {
                     model: db.companyProfile,
                     as: 'CompanyProfiles',
-                    attributes: ['mission','vision','history','active']
+                    attributes: ['mission','vision','history','active', 'schedule']
                 },
                 {
                     model: db.location,

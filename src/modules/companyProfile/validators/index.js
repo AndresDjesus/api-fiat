@@ -20,6 +20,10 @@ const validatesSChemaCreateCompanyProfile = Joi.object({
     history: Joi.string().required().messages({
         'any.required': 'El historial de la empresa es requerido',
         'string.empty': 'El historial de la empresa es requerido',
+    }),
+    schedule: Joi.string().required().messages({
+        'any.required': 'El horario de la empresa es requerido',
+        'string.empty': 'El horario de la empresa es requerido',
     })
 })
 
@@ -43,6 +47,10 @@ const validatesSChemaUpdatePutCompanyProfile = Joi.object({
     history: Joi.string().required().messages({
         'any.required': 'El historial de la empresa es requerido',
         'string.empty': 'El historial de la empresa es requerido',
+    }),
+    schedule: Joi.string().required().messages({
+        'any.required': 'El horario de la empresa es requerido',
+        'string.empty': 'El horario de la empresa es requerido',
     })
 })
 
@@ -66,6 +74,10 @@ const validatesSChemaUpdatePatchCompanyProfile = Joi.object({
     history: Joi.string().required().messages({
         'any.required': 'El historial de la empresa es requerido',
         'string.empty': 'El historial de la empresa es requerido',
+    }),
+    schedule: Joi.string().required().messages({
+        'any.required': 'El horario de la empresa es requerido',
+        'string.empty': 'El horario de la empresa es requerido',
     })
 })
 
@@ -82,6 +94,10 @@ const validatesSChemaGetCompanyProfile = Joi.object({
     history: Joi.string().required().messages({
         'any.required': 'El historial de la empresa es requerido',
         'string.empty': 'El historial de la empresa es requerido',
+    }),
+    schedule: Joi.string().required().messages({
+        'any.required': 'El horario de la empresa es requerido',
+        'string.empty': 'El horario de la empresa es requerido',
     })
 })
 

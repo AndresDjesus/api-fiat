@@ -20,6 +20,9 @@ module.exports = (DataTypes, sequelize) => {
         history: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+        schedule: {
+            type: DataTypes.STRING,
         }
     }, {
         timestamps: true,

@@ -1,10 +1,10 @@
 const express = require('express');
 const rTechnology = express.Router();
-const { CreateTechnologyController, GetIdTechnologyController, UpdatePutTechnologyController, UpdatePatchTechnologyController , DeleteTechnologyController , GetTechnologyController} = require('../controllers');
+const { CreateTechnologyController, GetIdTechnologyController, UpdatePutTechnologyController, UpdatePatchTechnologyController , DeleteTechnologyController , GetTechnologysController} = require('../controllers');
 
 rTechnology.get('/', async (req, res) => {
         try {
-           return await GetTechnologyController(req, res);
+           return await GetTechnologysController(req, res);
         } catch (err) {
             throw err;
         }

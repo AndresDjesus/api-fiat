@@ -7,15 +7,12 @@ module.exports = (DataTypes, sequelize) => {
         },
         ciudad: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         carretera: {
             type: DataTypes.STRING,
-            allowNull:false,
         },
         description: {
             type: DataTypes.TEXT,
-            allowNull: false,
         }
     }, {
         timestamps: true,

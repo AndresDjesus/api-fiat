@@ -22,6 +22,9 @@ module.exports = (DataTypes, sequelize) => {
       type: DataTypes.ENUM('manual', 'automatic'),
       allowNull: false,
     },
+    screen: {
+      type: DataTypes.STRING,
+    },
   }, {
     timestamps: true,
     paranoid: true

@@ -11,7 +11,7 @@ const createVehicle = async (data) => {
 const getVehicles = async () => {
     try {
         return await db.vehicles.findAll({
-            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission'],
+            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission','screen'],
             include: [
                 {
                     model: db.motors,
@@ -24,18 +24,8 @@ const getVehicles = async () => {
                 }, 
                 {
                     model: db.combustible,
-                    as:'combustible',
-                    attributes:['ciudad','carretera','description']
-                },
-                {
-                    model: db.design,
-                    as:'design',
-                    attributes:['title', 'content', 'base64']
-                },
-                {
-                    model: db.inside,
-                    as:'inside',
-                    attributes:['title', 'content', 'base64']
+                    as: 'combustible',
+                    attributes: ['carretera','ciudad','description']
                 },
                 {
                     model: db.images,
@@ -50,7 +40,7 @@ const getVehicles = async () => {
 const getIdVehicle = async (id) => {
     try {
         return await db.vehicles.findByPk(id, {
-            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission'],
+            attributes: ['id', 'name', 'description', 'year', 'price', 'transmission','screen'],
             include: [
                 {
                     model: db.motors,
@@ -63,18 +53,35 @@ const getIdVehicle = async (id) => {
                 },
                 {
                     model: db.combustible,
-                    as:'combustible',
-                    attributes:['ciudad','carretera','description']
+                    as: 'combustible',
+                    attributes: ['carretera','ciudad','description']
                 },
                 {
-                    model: db.design,
-                    as:'design',
-                    attributes:['title', 'content', 'base64']
+                    model : db.inside,
+                    as: 'inside',
+                    attributes: ['title','content'],
+                    include: [
+                        {
+                            model: db.images,
+                            attributes: ['principal','base64']
+                        }
+                    ]
                 },
                 {
-                    model: db.inside,
-                    as:'inside',
-                    attributes:['title', 'content', 'base64']
+                    model : db.design,
+                    as: 'design',
+                    attributes: ['title','content'],
+                    include: [
+                        {
+                            model: db.images,
+                            attributes: ['principal','base64']
+                        }
+                    ]
+                },
+                {
+                    model : db.technology,
+                    as: 'technology',
+                    attributes: ['title','content'],
                 },
                 {
                     model: db.images,

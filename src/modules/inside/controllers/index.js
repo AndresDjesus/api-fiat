@@ -24,7 +24,7 @@ const CreateInsideController = async (req, res) => {
 const GetInsidesController = async (req, res) => {
     try {
         const insides = await getInsides();
-        return res.json(designs);
+        return res.json(insides);
     } catch (err) {
         return res.status(500).send({ message: err.message, stack: err.stack });
     }
