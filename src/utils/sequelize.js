@@ -61,7 +61,7 @@ db.design.hasMany(db.images, {foreignKey: { name: 'design_id' , allowNull: true 
 db.inside.hasMany(db.vehicles, {foreignKey: 'inside_id'});
 db.vehicles.belongsTo(db.inside, {as: 'inside', foreignKey: 'inside_id'});
 db.images.belongsTo(db.inside, {as: 'inside', foreignKey: {name: 'inside_id', allowNull: true }});
-db.inside.hasMany(db.images , {foreignKey: { name: 'design_id' , allowNull: true }});
+db.inside.hasMany(db.images , {foreignKey: { name: 'inside_id' , allowNull: true }});
 
 db.technology.hasMany(db.vehicles, {foreignKey: 'technology_id'});
 db.vehicles.belongsTo(db.technology, {as: 'technology', foreignKey: 'technology_id'});

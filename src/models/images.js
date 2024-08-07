@@ -12,7 +12,10 @@ module.exports = (DataTypes, sequelize) => {
         principal: {
           type: DataTypes.BOOLEAN,
           defaultValue: false
-        }
+        },
+        order : {
+          type: DataTypes.INTEGER
+        },
       }, {
         timestamps: true,
         paranoid: true

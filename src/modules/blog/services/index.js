@@ -15,7 +15,7 @@ const getBlog = async () => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64']
+                    attributes: ['principal','base64','order']
                 }
             ]
         });
@@ -30,7 +30,7 @@ const getIdBlog = async (id) => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64']
+                    attributes: ['principal','base64', 'order']
                 }
             ]
         });

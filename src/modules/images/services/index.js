@@ -110,9 +110,6 @@ const deleteImage = async (id) => {
               if (!image) {
                 throw new Error('La imagen no existe.');
               }
-              if (image && (image.vehicle_id|| image.services_id)) {
-                throw new Error('La imagen está asociada a un vehículo o servicio. No se puede eliminar.');
-              }
           
    
         return await db.images.destroy({ where: { id } });

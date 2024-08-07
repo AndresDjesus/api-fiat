@@ -10,6 +10,9 @@ const validatesSChemaCreateImage = Joi.object({
         'any.required': 'La imagen es requerida',
         'string.empty': 'La imagen es requerida',
     }),
+    order: Joi.number().messages({
+        'number.empty': 'El orden de la imagen es requerido',
+    }),
     vehicle_id: Joi.number().messages({
         'number.empty': 'El id del vehículo es requerido'
     }),
@@ -78,6 +81,9 @@ const validatesSChemaUpdatePatchImage = Joi.object({
     base64: Joi.string().required().messages({
         'any.required': 'La imagen es requerida',
         'string.empty': 'La imagen es requerida',
+    }),
+    order: Joi.number().messages({
+        'number.empty': 'El orden de la imagen es requerido',
     }),
     vehicle_id: Joi.number().messages({
         'number.empty': 'El id del vehículo es requerido',

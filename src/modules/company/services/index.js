@@ -26,7 +26,7 @@ const getCompany = async () => {
                 {
                     
                         model: db.images,
-                        attributes: ['principal','base64']
+                        attributes: ['principal','base64', 'order']
                     
                 },
             ]
@@ -53,7 +53,7 @@ const getIdCompany = async (id) => {
                 },
                 {
                     model: db.images,
-                    attributes: ['principal','base64']
+                    attributes: ['principal','base64', 'order']
                 }
             ]
         });
