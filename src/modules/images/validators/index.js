@@ -34,6 +34,9 @@ const validatesSChemaCreateImage = Joi.object({
     inside_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido'
     }),
+    index_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
 
 });
 
