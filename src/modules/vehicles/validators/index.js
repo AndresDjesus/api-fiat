@@ -107,6 +107,7 @@ const validatesSChemaUpdatePatchVehicle = Joi.object({
     screen: Joi.string().messages({
         'string.empty': 'La pantalla del vehímulo es requerida',
     }),
+    
 
 });
 
