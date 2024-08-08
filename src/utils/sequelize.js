@@ -40,6 +40,7 @@ db.design = require('../models/design')(DataTypes, sequelize);
 db.inside = require('../models/inside')(DataTypes, sequelize);
 db.technology = require('../models/technology')(DataTypes, sequelize);
 db.index = require('../models/index')(DataTypes, sequelize);
+db.advertising = require('../models/advertising')(DataTypes, sequelize);
 
 // relationships 
 db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
@@ -86,6 +87,9 @@ db.images.belongsTo(db.footer, { as: 'footer', foreignKey:{ name: 'footer_id', a
 
 db.index.hasMany(db.images, { foreignKey:{ name: 'index_id', allowNull: true } });
 db.images.belongsTo(db.index, { as: 'index', foreignKey:{ name: 'index_id', allowNull: true } });
+
+db.advertising.hasMany(db.images, { foreignKey:{ name: 'advertising_id', allowNull: true } });
+db.images.belongsTo(db.advertising, { as: 'advertising', foreignKey:{ name: 'advertising_id', allowNull: true } });
 
 db.sequelize.sync({
   alter: true,

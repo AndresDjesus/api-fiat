@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const advertising = require('../../../models/advertising');
 
 // validador para crear una imagen
 const validatesSChemaCreateImage = Joi.object({
@@ -37,6 +38,9 @@ const validatesSChemaCreateImage = Joi.object({
     index_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido'
     }),
+    advertising_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
 
 });
 
@@ -70,6 +74,12 @@ const validatesSChemaUpdatePutImage = Joi.object({
         'number.empty': 'El id del footer es requerido'
     }),
     inside_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    index_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    advertising_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido'
     }),
 });
@@ -107,6 +117,12 @@ const validatesSChemaUpdatePatchImage = Joi.object({
         'number.empty': 'El id del footer es requerido'
     }),
     inside_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    index_id: Joi.number().messages({
+        'number.empty': 'El id del footer es requerido'
+    }),
+    advertising_id: Joi.number().messages({
         'number.empty': 'El id del footer es requerido'
     }),
     
