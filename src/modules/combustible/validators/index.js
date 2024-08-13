@@ -18,6 +18,10 @@ const validatesSChemaCreateCombustible = Joi.object({
 
 // Validador para actualizar un motor por medio de PUT
 const validatesSChemaUpdatePutCombustible = Joi.object({
+    name: Joi.string().required().messages({
+        'any.required': 'El combustible es requerido',
+        'string.empty': 'El combustible es requerido',
+    }),
     ciudad: Joi.string().required().messages({
         'any.required': 'El combustible en ciudad es requerido',
         'string.empty': 'El combustible en ciudad es requerido',
@@ -34,6 +38,10 @@ const validatesSChemaUpdatePutCombustible = Joi.object({
 
 // Validador para actualizar un motor por medio de PATCH
 const validatesSChemaUpdatePatchCombustible = Joi.object({
+    name: Joi.string().required().messages({
+        'any.required': 'El combustible es requerido',
+        'string.empty': 'El combustible es requerido',
+    }),
     ciudad: Joi.string().required().messages({
         'any.required': 'El combustible en ciudad es requerido',
         'string.empty': 'El combustible en ciudad es requerido',
