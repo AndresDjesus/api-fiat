@@ -2,6 +2,10 @@ const Joi = require('joi');
 
 // Validador para crear un motor
 const validatesSChemaCreateCombustible = Joi.object({
+    name: Joi.string().required().messages({
+        'any.required': 'El combustible es requerido',
+        'string.empty': 'El combustible es requerido',
+    }),
     ciudad: Joi.string().required().messages({
         'any.required': 'El combustible en ciudad es requerido',
         'string.empty': 'El combustible en ciudad es requerido',

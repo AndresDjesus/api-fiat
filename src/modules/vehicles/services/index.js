@@ -25,12 +25,39 @@ const getVehicles = async () => {
                 {
                     model: db.combustible,
                     as: 'combustible',
-                    attributes: ['carretera','ciudad','description']
+                    attributes: ['name','carretera','ciudad','description']
                 },
                 {
                     model: db.images,
                     attributes: ['principal','base64','order']
-                }
+                },
+                {
+                    model : db.inside,
+                    as: 'inside',
+                    attributes: ['title','content'],
+                    include: [
+                        {
+                            model: db.images,
+                            attributes: ['principal','base64','order']
+                        }
+                    ]
+                },
+                {
+                    model : db.design,
+                    as: 'design',
+                    attributes: ['title','content'],
+                    include: [
+                        {
+                            model: db.images,
+                            attributes: ['principal','base64','order']
+                        }
+                    ]
+                },
+                {
+                    model : db.technology,
+                    as: 'technology',
+                    attributes: ['title','content'],
+                },
             ]
         });
     } catch (e) {
@@ -54,7 +81,7 @@ const getIdVehicle = async (id) => {
                 {
                     model: db.combustible,
                     as: 'combustible',
-                    attributes: ['carretera','ciudad','description']
+                    attributes: ['name','carretera','ciudad','description']
                 },
                 {
                     model : db.inside,
