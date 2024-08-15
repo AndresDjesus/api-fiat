@@ -72,21 +72,21 @@ const getIdVehicle = async (id) => {
                 {
                     model: db.motors,
                     as: 'motor',
-                    attributes: ['name']
+                    attributes: ['id','name']
                 }, {
                     model: db.categories,
                     as: 'category',
-                    attributes: ['name']
+                    attributes: ['id','name']
                 },
                 {
                     model: db.combustible,
                     as: 'combustible',
-                    attributes: ['name','carretera','ciudad','description']
+                    attributes: ['id','name','carretera','ciudad','description']
                 },
                 {
                     model : db.inside,
                     as: 'inside',
-                    attributes: ['title','content'],
+                    attributes: ['id','title','content'],
                     include: [
                         {
                             model: db.images,
@@ -97,7 +97,7 @@ const getIdVehicle = async (id) => {
                 {
                     model : db.design,
                     as: 'design',
-                    attributes: ['title','content'],
+                    attributes: ['id','title','content'],
                     include: [
                         {
                             model: db.images,
@@ -108,7 +108,7 @@ const getIdVehicle = async (id) => {
                 {
                     model : db.technology,
                     as: 'technology',
-                    attributes: ['title','content'],
+                    attributes: ['id','title','content'],
                 },
                 {
                     model: db.images,

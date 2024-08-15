@@ -87,6 +87,7 @@ const UpdatePutVehicleController = async (req, res) => {
         if(err.status === 400) {
             return res.status(err.status).send({ message: err.message, stack: err.stack });
         }
+        console.log(err);
         return res.status(500).send({ message: err.message, stack: err.stack });
     }
 

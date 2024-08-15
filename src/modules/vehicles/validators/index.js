@@ -75,12 +75,40 @@ const validatesSChemaUpdatePutVehicle = Joi.object({
         'any.required': 'El precio del vehículo es requerido',
         'string.empty': 'El precio del vehículo es requerido',
     }),
+    category_id: Joi.number().required().messages({
+        'any.required': 'El id de la categoría es requerido',
+        'number.empty': 'El id de la categoría es requerido',
+    }),
+    motor_id: Joi.number().required().messages({
+        'any.required': 'El id del motor es requerido',
+        'number.empty': 'El id del motor es requerido',
+    }),
+    combustible_id: Joi.number().required().messages({
+        'any.required': 'El id del combustible es requerido',
+        'number.empty': 'El id del combustible es requerido',
+    }),
+    inside_id: Joi.number().required().messages({
+        'any.required': 'El id del inside es requerido',
+        'number.empty': 'El id del inside es requerido',
+    }),
+    design_id: Joi.number().required().messages({
+        'number.empty': 'El id del disenho es requerido',
+        'any.required': 'El id del disenho es requerido',
+    }),
+    technology_id: Joi.number().required().messages({
+        'number.empty': 'El id de la tecnología es requerido',
+        'any.required': 'El id de la tecnología es requerido',
+    }),
     description: Joi.string().messages({
         'string.empty': 'La descripción del vehímulo es requerida',
     }),
+    transmission: Joi.string().valid('manual', 'automatic').required().messages({
+        'string.empty': 'La transmision del vehímulo es requerida',
+        'any.required': 'La transmision del vehímulo es requerida',
+    }),
     screen: Joi.string().messages({
         'string.empty': 'La pantalla del vehímulo es requerida',
-    })
+    }),
 });
 
 // Validador para actualizar un vehículo por medio de PATCH
