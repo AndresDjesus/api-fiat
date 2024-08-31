@@ -16,7 +16,7 @@ const getAdvertising = async () => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64','order']
+                    attributes: ['id','principal','base64','order']
                 }
             ]
         });
@@ -31,7 +31,7 @@ const getIdAdvertising = async (id) => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64', 'order']
+                    attributes: ['id','principal','base64', 'order']
                 }
             ]
         });

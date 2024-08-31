@@ -11,7 +11,15 @@ const createCompanyProfile = async (data) => {
 
 const getCompanyProfile = async () => {
     try {
-        return await db.companyProfile.findAll();
+        return await db.companyProfile.findAll( {
+            include: [
+                {
+                    model: db.company,
+                    as: 'profile',
+                    attributes: ['name']
+                }
+            ],
+        });
     } catch (e) {
         throw e;
     }
@@ -19,7 +27,14 @@ const getCompanyProfile = async () => {
 
 const getIdCompanyProfile = async (id) => {
     try {
-        return await db.companyProfile.findByPk(id);
+        return await db.companyProfile.findByPk(id , {
+            include: [
+                {
+                    model: db.company,
+                    attributes: ['name']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }

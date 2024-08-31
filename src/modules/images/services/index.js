@@ -25,7 +25,35 @@ const createImage = async (data) => {
 
 const getImages = async () => {
     try {
-        return await db.images.findAll();
+        return await db.images.findAll( {
+            include: [
+                {
+                    model: db.services,
+                    attributes: ['name']
+                },
+                {
+                    model: db.vehicles,
+                    attributes: ['name']
+                },
+                {
+                    model: db.company,
+                    attributes: ['name']
+                },
+                {
+                    model: db.blog,
+                    attributes: ['title']
+                },
+                {
+                    model: db.footer,
+                    attributes: ['title']
+                },
+                {
+                    model: db.advertising,
+                    attributes: ['title']
+                }
+
+            ]
+        });
     } catch (e) {
         throw e;
     }

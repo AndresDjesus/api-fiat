@@ -1,5 +1,6 @@
 const {date} = require('joi');
 const db = require('../../../utils/sequelize');
+const company = require('../../../models/company');
 
 const createLocation = async (data) => {
     try {
@@ -11,7 +12,15 @@ const createLocation = async (data) => {
 
 const getLocations = async () => {
     try {
-        return await db.location.findAll();
+        return await db.location.findAll( {
+            include: [
+                {
+                    model: db.company,
+                    as: 'location',
+                    attributes: ['name']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }
@@ -19,7 +28,14 @@ const getLocations = async () => {
 
 const getIdLocation = async (id) => {
     try {
-        return await db.location.findByPk(id);
+        return await db.location.findByPk(id , {
+            include: [
+                {
+                    model: db.company,
+                    attributes: ['name']
+                }
+            ]
+        });
     } catch (e) {
         throw e;
     }

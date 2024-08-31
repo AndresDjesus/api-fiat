@@ -1,5 +1,5 @@
 module.exports = (DataTypes, sequelize) => {
-    const Categories = sequelize.define('Location', {
+    const Location = sequelize.define('Location', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -21,5 +21,5 @@ module.exports = (DataTypes, sequelize) => {
         timestamps: true,
         paranoid: true
     });
-    return Categories
+    return Location
 }

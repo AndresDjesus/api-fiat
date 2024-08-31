@@ -16,7 +16,7 @@ const getInsides = async () => {
             include : [
                 {
                     model: db.images,
-                    attributes: ['principal','base64', 'order']
+                    attributes: ['id','principal','base64', 'order']
                 }
             ]
         });
@@ -30,7 +30,7 @@ const getIdInside = async (id) => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal', 'base64', 'order']
+                    attributes: ['id','principal', 'base64', 'order']
                 }
             ]
         });

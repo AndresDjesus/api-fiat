@@ -16,7 +16,7 @@ const getServices = async () => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64', 'order']
+                    attributes: ['id','principal','base64', 'order']
                 }
             ]
         });
@@ -32,7 +32,7 @@ const getIdService = async (id) => {
             include: [
                 {
                     model: db.images,
-                    attributes: ['principal','base64', 'order']
+                    attributes: ['id','principal','base64', 'order']
                 }
             ]
         });

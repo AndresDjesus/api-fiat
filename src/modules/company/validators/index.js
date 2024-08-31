@@ -7,8 +7,8 @@ const validatesSChemaCreateCompany = Joi.object({
         'string.empty': 'El nombre de la empresa es requerido',
     }),
     description: Joi.string().required().messages({
-        'any.required': 'El nit de la empresa es requerido',
-        'string.empty': 'El nit de la empresa es requerido',
+        'any.required': 'El descripcion de la empresa es requerido',
+        'string.empty': 'El descripcion de la empresa es requerido',
     })
 
 })
@@ -20,8 +20,8 @@ const validatesSChemaUpdatePutCompany = Joi.object({
         'string.empty': 'El nombre de la empresa es requerido',
     }),
     description: Joi.string().required().messages({
-        'any.required': 'El nit de la empresa es requerido',
-        'string.empty': 'El nit de la empresa es requerido',
+        'any.required': 'La descripcion de la empresa es requerido',
+        'string.empty': 'El descripcion de la empresa es requerido',
     })
 })
 

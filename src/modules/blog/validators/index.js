@@ -10,6 +10,10 @@ const validatesSChemaCreateBlog = Joi.object({
         'any.required': 'El contenido del blog es requerido',
         'string.empty': 'El contenido del blog es requerido',
     }),
+    description: Joi.string().required().messages({
+        'any.required': 'La descripción del blog es requerida',
+        'string.empty': 'La descripción del blog es requerida',
+    }),
     date: Joi.date().required().messages({
         'any.required': 'La fecha del blog es requerida',
         'date.base': 'La fecha del blog es requerida',
@@ -25,6 +29,10 @@ const validatesSChemaUpdatePutBlog = Joi.object({
     content: Joi.string().required().messages({
         'any.required': 'El contenido del blog es requerido',
         'string.empty': 'El contenido del blog es requerido',
+    }),
+    description: Joi.string().required().messages({
+        'any.required': 'La descripción del blog es requerida',
+        'string.empty': 'La descripción del blog es requerida',
     }),
     date: Joi.date().required().messages({
         'any.required': 'La fecha del blog es requerida',
