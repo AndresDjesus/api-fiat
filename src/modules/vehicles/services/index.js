@@ -29,7 +29,7 @@ const getVehicles = async () => {
                 },
                 {
                     model: db.images,
-                    attributes: ['principal','base64','order']
+                    attributes: ['id','principal','base64','order']
                 },
                 {
                     model : db.inside,
@@ -38,7 +38,7 @@ const getVehicles = async () => {
                     include: [
                         {
                             model: db.images,
-                            attributes: ['principal','base64','order']
+                            attributes: ['id','principal','base64','order']
                         }
                     ]
                 },
@@ -49,7 +49,7 @@ const getVehicles = async () => {
                     include: [
                         {
                             model: db.images,
-                            attributes: ['principal','base64','order']
+                            attributes: ['id','principal','base64','order']
                         }
                     ]
                 },
@@ -90,7 +90,7 @@ const getIdVehicle = async (id) => {
                     include: [
                         {
                             model: db.images,
-                            attributes: ['principal','base64','order']
+                            attributes: ['id','principal','base64','order']
                         }
                     ]
                 },
@@ -101,7 +101,7 @@ const getIdVehicle = async (id) => {
                     include: [
                         {
                             model: db.images,
-                            attributes: ['principal','base64','order']
+                            attributes: ['id','principal','base64','order']
                         }
                     ]
                 },
@@ -112,7 +112,7 @@ const getIdVehicle = async (id) => {
                 },
                 {
                     model: db.images,
-                    attributes: ['principal','base64','order']
+                    attributes: ['id','principal','base64','order']
                 }
             ]
         });
