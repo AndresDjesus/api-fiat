@@ -1,4 +1,4 @@
-const {validatesSChemaCreateFooter, validatesSChemaUpdatePutFooter, validatesSChemaUpdatePatchFooter, validatesSChemaGetFooter, validatesSChemaDeleteFooter} = require('../validators');
+const {validatesSChemaCreateFooter, validatesSChemaUpdatePutFooter, validatesSChemaUpdatePatchFooter, } = require('../validators');
 
 const {createFooter, getFooter, getIdFooter, updatePutFooter, updatePatchFooter, deleteFooter} = require('../services');
 
@@ -92,13 +92,6 @@ const UpdatePatchFooterController = async (req, res) => {
 
 const DeleteFooterController = async (req, res) => {
     try {
-        const { error } = validatesSChemaDeleteFooter.validate({ ...req.body }, { abortEarly: false });
-        if(error) {
-            const e = new Error();
-            e.status = 400;
-            e.message = error.details.map((err) => err.message).join(', ');
-            throw e;
-        }
         const { id } = req.params;
         const footer = await deleteFooter(id);
         if(footer[0] === 0) {

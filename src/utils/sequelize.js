@@ -41,6 +41,9 @@ db.inside = require('../models/inside')(DataTypes, sequelize);
 db.technology = require('../models/technology')(DataTypes, sequelize);
 db.index = require('../models/index')(DataTypes, sequelize);
 db.advertising = require('../models/advertising')(DataTypes, sequelize);
+db.user = require('../models/user')(DataTypes, sequelize);
+db.role = require('../models/role')(DataTypes, sequelize);
+db.permission = require('../models/permission')(DataTypes, sequelize);
 
 // relationships 
 db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
@@ -90,6 +93,13 @@ db.images.belongsTo(db.index, { as: 'index', foreignKey:{ name: 'index_id', allo
 
 db.advertising.hasMany(db.images, { foreignKey:{ name: 'advertising_id', allowNull: true } });
 db.images.belongsTo(db.advertising, { as: 'advertising', foreignKey:{ name: 'advertising_id', allowNull: true } });
+
+db.user.hasMany(db.role, { foreignKey: 'user_id' });
+db.role.belongsTo(db.user, { as: 'user', foreignKey: 'user_id' });
+db.role.hasMany(db.permission, { foreignKey: 'role_id' });
+db.permission.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
+
+
 
 db.sequelize.sync({
   alter: true,

@@ -123,35 +123,5 @@ const validatesSChemaGetFooter = Joi.object({
   })
 });
 
-// Validador para borrar un footer por medio de DELETE
-const validatesSChemaDeleteFooter = Joi.object({
-  address: Joi.string().required().messages({
-    'any.required': 'La ubicación es requerida',
-    'string.empty': 'La ubicación es requerida',
-  }),
-  email: Joi.string().email().required().messages({
-    'any.required': 'El correo es requerido',
-    'string.empty': 'El correo es requerido',
-    'string.email': 'El correo electrónico debe ser válido',
-  }),
-  phone: Joi.string().required().messages({
-    'any.required': 'El telefono es requerido',
-    'string.empty': 'El telefono es requerido',
-  }),
-  social_networks: Joi.object().required().keys({
-    gmail: Joi.object().keys({
-      username: Joi.string().email().required(),
-      url: Joi.string().uri().optional()
-    }).required(),
-    instagram: Joi.object().keys({
-      username: Joi.string().required(),
-      url: Joi.string().uri().optional()
-    }).required(),
-    whatsapp: Joi.object().keys({
-      number: Joi.string().required(),
-      url: Joi.string().uri().optional()
-    }).required(),
-  })
-});
 
-module.exports = { validatesSChemaCreateFooter, validatesSChemaUpdatePutFooter, validatesSChemaUpdatePatchFooter, validatesSChemaGetFooter, validatesSChemaDeleteFooter }
+module.exports = { validatesSChemaCreateFooter, validatesSChemaUpdatePutFooter, validatesSChemaUpdatePatchFooter, validatesSChemaGetFooter }
