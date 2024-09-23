@@ -94,10 +94,11 @@ db.images.belongsTo(db.index, { as: 'index', foreignKey:{ name: 'index_id', allo
 db.advertising.hasMany(db.images, { foreignKey:{ name: 'advertising_id', allowNull: true } });
 db.images.belongsTo(db.advertising, { as: 'advertising', foreignKey:{ name: 'advertising_id', allowNull: true } });
 
-db.user.hasMany(db.role, { foreignKey: 'user_id' });
-db.role.belongsTo(db.user, { as: 'user', foreignKey: 'user_id' });
-db.role.hasMany(db.permission, { foreignKey: 'role_id' });
-db.permission.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
+db.role.hasMany(db.user, { foreignKey: 'role_id' });
+db.user.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
+
+//db.role.hasMany(db.permission, { foreignKey: 'role_id' });
+//db.permission.belongsTo(db.role, { as: 'permission', foreignKey: 'role_id' });
 
 
 

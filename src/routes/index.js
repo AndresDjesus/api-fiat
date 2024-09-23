@@ -16,6 +16,8 @@ const rInside = require('../modules/inside/routes');
 const rTechnology = require('../modules/technology/routes');
 const rIndex = require('../modules/index/routes');
 const rAdvertising = require('../modules/advertising/routes');
+const rUser = require('../modules/user/routes');
+const rRole = require('../modules/role/routes');
 const router = express.Router();
 
 router.use('/vehicles', rVehicles);
@@ -34,5 +36,7 @@ router.use('/inside' , rInside);
 router.use('/technology', rTechnology);
 router.use('/index', rIndex);
 router.use('/advertising', rAdvertising);
+router.use('/user', rUser);
+router.use('/role', rRole);
 
 module.exports = router;
