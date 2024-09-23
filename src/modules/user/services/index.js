@@ -20,18 +20,21 @@ const getUser = async () => {
 };
 
 const getIdUser = async (id) => {
-    const user = await db.user.findByPk(id , {
-        attributes: ['id', 'username', 'email', 'password'],
-        include: [
-            {
-                model: db.role,
-                as: 'role',
-                attributes: ['id', 'name']
-            }
-        ]
-    });
-    return user;
-};
+    try {
+        return await db.user.findByPk(id , {
+            attributes: ['id', 'username', 'email', 'password'],
+            include: [
+                {
+                    model: db.role,
+                    as: 'role',
+                    attributes: ['id', 'name']
+                }
+            ]
+        });
+    } catch (e) {
+        throw e;
+    }
+}
 
 const updateUserPut = async (id, data) => {
     const user = await db.user.update(data, { where: { id } });

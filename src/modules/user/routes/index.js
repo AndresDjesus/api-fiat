@@ -1,6 +1,6 @@
 const express = require('express');
 const rUser = express.Router();
-const { createUserController, getIdUserController, updatePutUserController, updatePatchUserController , deleteUserController , getUsersController} = require('../controllers');
+const { createUserController, getIdUserController, updateUserPutController, updateUserPatchController, deleteUserController , getUsersController} = require('../controllers');
 
 rUser.get('/', async (req, res) => {
     try {
@@ -28,7 +28,7 @@ rUser.post('/', async (req, res) => {
 
 rUser.put('/:id',async (req, res) => {
     try {
-        return await updatePutUserController(req, res);
+        return await updateUserPutController(req, res);
     } catch (err) {
         throw err;
     }
@@ -36,7 +36,7 @@ rUser.put('/:id',async (req, res) => {
 
 rUser.patch('/:id',async (req, res) => {
     try {
-        return await updatePatchUserController(req, res);
+        return await updateUserPatchController(req, res);
     } catch (err) {
         throw err;
     }
