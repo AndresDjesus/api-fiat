@@ -26,9 +26,17 @@ const validatesSChemaUpdatePatchRole = Joi.object({
 
 // Validador para obtener un role por medio de GET
 const validatesSChemaGetRole = Joi.object({
-    name: Joi.string().required().messages({
-        'any.required': 'El nombre es requerido',
-        'string.empty': 'El nombre es requerido',
+    id: Joi.string().required().messages({
+        'any.required': 'El id es requerido',
+        'string.empty': 'El id es requerido',
+    }),
+});
+
+// Validador para eliminar un role por medio de DELETE
+const validatesSChemaDeleteRole = Joi.object({
+    id: Joi.string().required().messages({
+        'any.required': 'El id es requerido',
+        'string.empty': 'El id es requerido',
     }),
 });
 
@@ -36,5 +44,6 @@ module.exports = {
     validatesSChemaCreateRoles,
     validatesSChemaUpdatePutRole,
     validatesSChemaUpdatePatchRole,
-    validatesSChemaGetRole
+    validatesSChemaGetRole,
+    validatesSChemaDeleteRole
 }
