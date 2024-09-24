@@ -18,6 +18,7 @@ const rIndex = require('../modules/index/routes');
 const rAdvertising = require('../modules/advertising/routes');
 const rUser = require('../modules/user/routes');
 const rRole = require('../modules/role/routes');
+const rPermission = require('../modules/permission/routes');
 const router = express.Router();
 
 router.use('/vehicles', rVehicles);
@@ -38,5 +39,6 @@ router.use('/index', rIndex);
 router.use('/advertising', rAdvertising);
 router.use('/user', rUser);
 router.use('/role', rRole);
+router.use('/permission', rPermission);
 
 module.exports = router;

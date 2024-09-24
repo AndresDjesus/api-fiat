@@ -97,8 +97,8 @@ db.images.belongsTo(db.advertising, { as: 'advertising', foreignKey:{ name: 'adv
 db.role.hasMany(db.user, { foreignKey: 'role_id' });
 db.user.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
 
-//db.role.hasMany(db.permission, { foreignKey: 'role_id' });
-//db.permission.belongsTo(db.role, { as: 'permission', foreignKey: 'role_id' });
+db.permission.hasMany(db.role, { foreignKey: 'permission_id' });
+db.role.belongsTo(db.permission, { as: 'permission', foreignKey: 'role_id' });
 
 
 

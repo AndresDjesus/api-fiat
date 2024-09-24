@@ -13,8 +13,8 @@ const createUserController = async (req, res) => {
             e.message = error.details.map((err) => err.message).join(', ');
             throw e;
         }
-        const motor = await createUser(req.body);
-        return res.json(motor);
+        const user = await createUser(req.body);
+        return res.json(user);
     } catch (err) {
         if(err.status === 400) {
             return res.status(err.status).send({ message: err.message, stack: err.stack });
