@@ -6,6 +6,10 @@ const validatesSChemaCreateRoles = Joi.object({
         'any.required': 'El nombre del motor es requerido',
         'string.empty': 'El nombre del motor es requerido',
     }),
+    permission_id: Joi.number().required().messages({
+        'any.required': 'El id del permiso es requerido',
+        'string.empty': 'El id del permiso es requerido',
+    }),
 });
 
 // Validador para actualizar un role por medio de PUT
@@ -13,6 +17,10 @@ const validatesSChemaUpdatePutRole = Joi.object({
     name: Joi.string().required().messages({
         'any.required': 'El nombre es requerido',
         'string.empty': 'El nombre es requerido',
+    }),
+    permission_id: Joi.number().required().messages({
+        'any.required': 'El id del permiso es requerido',
+        'string.empty': 'El id del permiso es requerido',
     }),
 });
 
@@ -22,11 +30,15 @@ const validatesSChemaUpdatePatchRole = Joi.object({
         'any.required': 'El nombre es requerido',
         'string.empty': 'El nombre es requerido',
     }),
+    permission_id: Joi.number().required().messages({
+        'any.required': 'El id del permiso es requerido',
+        'string.empty': 'El id del permiso es requerido',
+    }),
 });
 
 // Validador para obtener un role por medio de GET
 const validatesSChemaGetRole = Joi.object({
-    id: Joi.string().required().messages({
+    id: Joi.number().required().messages({
         'any.required': 'El id es requerido',
         'string.empty': 'El id es requerido',
     }),
@@ -34,7 +46,7 @@ const validatesSChemaGetRole = Joi.object({
 
 // Validador para eliminar un role por medio de DELETE
 const validatesSChemaDeleteRole = Joi.object({
-    id: Joi.string().required().messages({
+    id: Joi.number().required().messages({
         'any.required': 'El id es requerido',
         'string.empty': 'El id es requerido',
     }),

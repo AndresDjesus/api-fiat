@@ -98,7 +98,7 @@ db.role.hasMany(db.user, { foreignKey: 'role_id' });
 db.user.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
 
 db.permission.hasMany(db.role, { foreignKey: 'permission_id' });
-db.role.belongsTo(db.permission, { as: 'permission', foreignKey: 'role_id' });
+db.role.belongsTo(db.permission, { as: 'permission', foreignKey: 'permission_id' });
 
 
 
