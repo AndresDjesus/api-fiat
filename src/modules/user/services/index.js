@@ -13,7 +13,8 @@ const getUser = async () => {
                 model: db.role,
                 as: 'role',
                 attributes: ['id', 'name']
-            }
+            },
+            
         ]
     });
     return user;
