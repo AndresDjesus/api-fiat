@@ -9,12 +9,16 @@ module.exports = (DataTypes , sequelize) => {
             type: DataTypes.STRING,
             allowNull : false,
         },
-        action : {
-            type: DataTypes.STRING,
+        execute : {
+            type : DataTypes.BOOLEAN,
             allowNull : false,
         },
-        resource : {
-            type: DataTypes.STRING,
+        read : {
+            type : DataTypes.BOOLEAN,
+            allowNull : false,
+        },
+        write : {
+            type : DataTypes.BOOLEAN,
             allowNull : false,
         }
     },{

@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const rVehicles = require('../modules/vehicles/routes');
 const rCategories = require('../modules/categories/routes');
 const rMotors = require('../modules/motors/routes');
@@ -20,10 +19,9 @@ const rAdvertising = require('../modules/advertising/routes');
 const rUser = require('../modules/user/routes');
 const rRole = require('../modules/role/routes');
 const rPermission = require('../modules/permission/routes');
-const authMiddleware = require('./authMiddleware');
-const authRouter = require('./authController');
+const rResource = require('../modules/resource/routes');
 const router = express.Router();
-const app = express();
+
 
 router.use('/vehicles', rVehicles);
 router.use('/categories', rCategories);
@@ -41,10 +39,9 @@ router.use('/inside' , rInside);
 router.use('/technology', rTechnology);
 router.use('/index', rIndex);
 router.use('/advertising', rAdvertising);
-router.use('/user', authMiddleware, rUser);
-router.use('/role', authMiddleware, rRole);
-router.use('/permission', authMiddleware, rPermission);
-
-app.use('/auth/login', authRouter);
+router.use('/user', rUser);
+router.use('/role', rRole);
+router.use('/permission', rPermission);
+router.use('/resource', rResource);
 
 module.exports = router;

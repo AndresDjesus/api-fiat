@@ -7,7 +7,14 @@ const createPermission = async (data) => {
 
 const getPermissions = async () => {
     const permissions = await db.permission.findAll({
-        atributte : ['id', 'name', 'action', 'resource']
+        atributte : ['id', 'name', 'execute', 'read', 'write'],
+        include: [
+            {
+                model: db.resource,
+                as: 'resource',
+                attributes: ['name']
+            }
+        ]
     });
     return permissions;
 };
@@ -15,7 +22,14 @@ const getPermissions = async () => {
 const getIdPermission = async (id) => {
     try {
         return await db.permission.findByPk(id , {
-            attributes: ['id', 'name', 'action', 'resource'],
+            attributes: ['id', 'name', 'execute', 'read', 'write'],
+            include: [
+                {
+                    model: db.resource,
+                    as: 'resource',
+                    attributes: ['name']
+                }
+            ]
         });
     } catch (e) {
         throw e;

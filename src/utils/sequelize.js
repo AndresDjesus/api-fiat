@@ -44,6 +44,7 @@ db.advertising = require('../models/advertising')(DataTypes, sequelize);
 db.user = require('../models/user')(DataTypes, sequelize);
 db.role = require('../models/role')(DataTypes, sequelize);
 db.permission = require('../models/permission')(DataTypes, sequelize);
+db.resource = require('../models/resource')(DataTypes, sequelize);
 
 // relationships 
 db.categories.hasMany(db.vehicles, { foreignKey: 'category_id' });
@@ -100,7 +101,8 @@ db.user.belongsTo(db.role, { as: 'role', foreignKey: 'role_id' });
 db.permission.hasMany(db.role, { foreignKey: 'permission_id' });
 db.role.belongsTo(db.permission, { as: 'permission', foreignKey: 'permission_id' });
 
-
+db.resource.hasMany(db.permission, { foreignKey: 'resource_id' });
+db.permission.belongsTo(db.resource, { as: 'resource', foreignKey: 'resource_id' });
 
 db.sequelize.sync({
   alter: true,

@@ -1,3 +1,4 @@
+const e = require('express');
 const joi = require('joi');
 
 // Validador para crear un permission 
@@ -6,13 +7,17 @@ const validatesSChemaCreatePermission = joi.object({
         'any.required': 'El nombre es requerido',
         'string.empty': 'El nombre es requerido',
     }),
-    action : joi.string().required().messages({
+    execute : joi.string().valid('true', 'false').required().messages({
         'any.required': 'La accion es requerida',
         'string.empty': 'La accion es requerida',
     }),
-    resource : joi.string().required().messages({
-        'any.required': 'El recurso es requerido',
-        'string.empty': 'El recurso es requerido',
+    read : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
+    }),
+    write : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
     }),
 });
 
@@ -22,13 +27,17 @@ const validatesSChemaUpdatePutPermission = joi.object({
         'any.required': 'El nombre es requerido',
         'string.empty': 'El nombre es requerido',
     }),
-    action : joi.string().required().messages({
+    execute : joi.string().valid('true', 'false').required().messages({
         'any.required': 'La accion es requerida',
         'string.empty': 'La accion es requerida',
     }),
-    resource : joi.string().required().messages({
-        'any.required': 'El recurso es requerido',
-        'string.empty': 'El recurso es requerido',
+    read : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
+    }),
+    write : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
     }),
 });
 
@@ -38,13 +47,17 @@ const validatesSChemaUpdatePatchPermission = joi.object({
         'any.required': 'El nombre es requerido',
         'string.empty': 'El nombre es requerido',
     }),
-    action : joi.string().required().messages({
+    execute : joi.string().valid('true', 'false').required().messages({
         'any.required': 'La accion es requerida',
         'string.empty': 'La accion es requerida',
     }),
-    resource : joi.string().required().messages({
-        'any.required': 'El recurso es requerido',
-        'string.empty': 'El recurso es requerido',
+    read : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
+    }),
+    write : joi.string().valid('true', 'false').required().messages({
+        'any.required': 'La accion es requerida',
+        'string.empty': 'La accion es requerida',
     }),
 });
 
