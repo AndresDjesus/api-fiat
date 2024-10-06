@@ -1,5 +1,6 @@
 const e = require('express');
 const joi = require('joi');
+const role = require('../../../models/role');
 
 // Validador para crear un permission 
 const validatesSChemaCreatePermission = joi.object({
@@ -19,6 +20,14 @@ const validatesSChemaCreatePermission = joi.object({
         'any.required': 'La accion es requerida',
         'string.empty': 'La accion es requerida',
     }),
+    resource_id : joi.string().required().messages({
+        'any.required': 'El id del recurso es requerido',
+        'string.empty': 'El id del recurso es requerido',
+    }),
+    role_id : joi.string().required().messages({
+        'any.required': 'El id del rol es requerido',
+        'string.empty': 'El id del rol es requerido',
+    })
 });
 
 // Validador para actualizar un permission por medio de PUT

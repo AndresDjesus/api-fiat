@@ -1,6 +1,6 @@
 const express = require('express');
 const rResource = express.Router();
-const { CreateResourceController, GetIdResourceController, UpdatePutResourceController, UpdatePatchResourceController , DeleteResourceController , GetResourcesController} = require('../controllers');
+const { CreateResourceController, GetIdResourceController, UpdateResourcePutController, UpdateResourcePatchController , DeleteResourceController , GetResourcesController} = require('../controllers');
 
 rResource.get('/', async (req, res) => {
         try {
@@ -28,7 +28,7 @@ rResource.post('/', async (req, res) => {
 
 rResource.put('/:id',async (req, res) => {
         try {
-            return await UpdatePutResourceController(req, res);
+            return await UpdateResourcePutController(req, res);
         } catch (err) {
             throw err;
         }
@@ -36,7 +36,7 @@ rResource.put('/:id',async (req, res) => {
 
 rResource.patch('/:id',async (req, res) => {
         try {
-            return await UpdatePatchResourceController(req, res);
+            return await UpdateResourcePatchController(req, res);
         } catch (err) {
             throw err;
         }

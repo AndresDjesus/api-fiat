@@ -10,6 +10,11 @@ const getPermissions = async () => {
         atributte : ['id', 'name', 'execute', 'read', 'write'],
         include: [
             {
+                model: db.role,
+                as: 'role',
+                attributes: ['id', 'name']
+            },
+            {
                 model: db.resource,
                 as: 'resource',
                 attributes: ['name']
@@ -24,6 +29,11 @@ const getIdPermission = async (id) => {
         return await db.permission.findByPk(id , {
             attributes: ['id', 'name', 'execute', 'read', 'write'],
             include: [
+                {
+                    model: db.role,
+                    as: 'role',
+                    attributes: ['id', 'name']
+                },
                 {
                     model: db.resource,
                     as: 'resource',

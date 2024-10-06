@@ -44,4 +44,6 @@ router.use('/role', rRole);
 router.use('/permission', rPermission);
 router.use('/resource', rResource);
 
+router.use('/auth', require('../modules/auth')); 
+
 module.exports = router;
