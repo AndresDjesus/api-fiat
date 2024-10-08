@@ -1,27 +1,47 @@
 const { validatesSChemaCreateUser, validatesSChemaUpdatePutUser, validatesSChemaUpdatePatchUser, validatesSChemaGetUser, validatesSChemaDeleteUser} = require('../validators');
 
 const { createUser, getUser, getIdUser, updateUserPut, updateUserPatch, deleteUser } = require('../services');
+const {hashCompare, hashString} = require('../../../utils/crypto');
 
 const user = require('../../../models/user');
 
 const createUserController = async (req, res) => {
-    try { 
-        const { error } = validatesSChemaCreateUser.validate({ ...req.body }, { abortEarly: false });
-        if(error) {
-            const e = new Error();
-            e.status = 400;
-            e.message = error.details.map((err) => err.message).join(', ');
-            throw e;
-        }
-        const user = await createUser(req.body);
-        return res.json(user);
+    try {
+        console.log('DATOS DE LA PETICION',req.body);
+      // 1. Extract and validate user data (excluding password)
+      const { error } = validatesSChemaCreateUser.validate(
+        { ...req.body },
+        { abortEarly: false }
+      );
+      if (error) {
+        const e = new Error();
+        e.status = 400;
+        e.message = error.details.map((err) => err.message).join(', ');
+        throw e;
+      }
+  
+      const rest = { ...req.body };
+  
+      // 2. Validate password presence (optional)
+      if (!rest.password) {
+        throw new Error('La contraseña es obligatoria');
+      }
+      // 3. Hash the password (assuming hashString is a secure hashing function)
+      const hashedPassword = await hashString(rest.password);
+      rest.password = hashedPassword;
+  
+      // 4. Create the user with hashed password
+      const user = await createUser({ ...rest, password: hashedPassword });
+  
+      return res.status(201).json({ message: 'Usuario creado exitosamente', user });
     } catch (err) {
-        if(err.status === 400) {
-            return res.status(err.status).send({ message: err.message, stack: err.stack });
-        }
-        return res.status(500).send({ message: err.message, stack: err.stack });
+      console.error(err);
+      if (err.status === 400) {
+        return res.status(err.status).send({ message: err.message }); // Avoid sending stack trace
+      }
+      return res.status(500).send({ message: 'Error al crear el usuario' });
     }
-}
+  };
 
 const getUsersController = async (req, res) => {
     try {
